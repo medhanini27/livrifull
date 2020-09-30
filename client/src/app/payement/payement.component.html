@@ -1,0 +1,379 @@
+﻿
+
+<style>
+
+
+input, label {
+  margin: 5px 5px;
+}
+
+.form-group {
+  margin: 30px auto;
+  width: 450px;
+}
+
+
+
+#inputStreet {
+  width: 100%;
+}
+
+#inputCity {
+  width: 50%;
+}
+
+#inputState {
+  width: 15%;
+}
+
+#inputZip {
+  width: 28%;
+}
+
+#inputCounty {
+  width: 45%;
+}
+
+#inputCountry {
+  width: 50%;
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="#">
+    <meta name="description" content="#">
+    <title>Payemment</title>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="#">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="#">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="#">
+    <link rel="apple-touch-icon-precomposed" href="#">
+    <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <notifier-container></notifier-container>
+
+    <div class="header">
+        <header class="full-width">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mainNavCol">
+                        <!-- logo -->
+                        <div class="logo mainNavCol">
+                            <a href="#">
+                                <img src="assets/img/Logo.png" class="img-fluid" alt="Logo">
+                            </a>
+                        </div>
+                        <!-- logo -->
+                        <div class="main-search mainNavCol">
+                            <form class="main-search search-form full-width">
+                                <div class="row">
+                                    <!-- location picker -->
+                                    <!--<div class="col-lg-6 col-md-5">
+                                        <a href="#" class="delivery-add p-relative">
+                                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                                            <span class="address">Brooklyn, NY</span>
+                                        </a>
+                                        <div class="location-picker">
+                                            <input type="text" class="form-control" placeholder="Enter a new address">
+                                        </div>
+                                    </div>-->
+                                    <!-- location picker -->
+                                    <!-- search -->
+                                    <!--<div class="col-lg-6 col-md-7">
+                                        <div class="search-box padding-10">
+                                            <input type="text" class="form-control" placeholder="Pizza, Burger, Chinese">
+                                        </div>
+                                    </div>-->
+                                    <!-- search -->
+                                </div>
+                            </form>
+                        </div>
+                        <div class="right-side fw-700 mainNavCol">
+                            <!--<div class="gem-points">
+                                <a href="#">
+                                    <i class="fas fa-concierge-bell"></i>
+                                    <span>Order Now</span>
+                                </a>
+                            </div>-->
+                    
+                            <!-- mobile search -->
+                       
+                            <!-- mobile search -->
+                            <!-- user account -->
+                            <div class="user-details p-relative">
+                                <a class="text-light-white fw-500">
+                                    <img src="{{userimg}}" class="rounded-circle" alt="userimg" style="width:30px;height:30px"> <span>{{user["firstName"]}}</span>
+                                </a>
+                                <div class="user-dropdown" style="width:300px">
+                                   
+                                    <div class="user-footer">
+                                        <span class="text-light-black">Not {{user["firstName"]}}?</span> <a href="#">Sign Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- mobile search -->
+                            <!-- user notification -->
+                      
+                            <!-- user notification -->
+                            <!-- user cart -->
+                          
+                            <!-- user cart -->
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="main-sec"></div>
+    <!-- Navigation -->
+    <section class="final-order section-padding bg-light-theme" >
+        <div class="container-fluid" id="paye">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="main-box padding-20">
+                        <div class="row mb-xl-20">
+                            <div class="col-md-6">
+                                <div class="section-header-left">
+                                    <h3 class="text-light-black header-title fw-700">Fournissez votre adresse</h3>
+                                </div>
+
+
+
+
+                                <div  name="myForm" class="form-group" style="margin-top:100px">
+
+                                    <input type="street"
+                                           class="form-control"
+                                           id="autocomplete"
+                                           placeholder="rue"
+                                            required >
+
+                                    <input type="city"
+                                           class="form-control"
+                                           id="inputCity"
+                                           placeholder="Ville">
+
+                                    <input type="state"
+                                           class="form-control"
+                                           id="inputState"
+                                           placeholder="l' État">
+
+                                    <input type="zip"
+                                           class="form-control"
+                                           id="inputZip"
+                                           placeholder="code postal">
+
+                                    <input type="county"
+                                           class="form-control"
+                                           id="inputCounty"
+                                           placeholder="Pays">
+                                    <input type="phone"
+                                           class="form-control"
+                                           id="inputphone"
+                                           placeholder="téléphone">
+                                    
+                                    
+                                   
+
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="advertisement-img">
+                                    <img src="assets/homecss/assets/img/checkout.jpg" class="img-fluid full-width" alt="advertisement-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="payment-sec">
+                                    <!--<div class="section-header-left">
+                                        <h3 class="text-light-black header-title">Delivery Instructions</h3>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control form-control-submit" rows="4" placeholder="Delivery Details"></textarea>
+                                    </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <!--<div class="form-group">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="#"> <span class="checkmark"></span> Spare me the napkins and plasticware. I'm trying to save the earth.
+                                        </label>
+                                    </div>
+                                    <div class="section-header-left">
+                                        <h3 class="text-light-black header-title">Payment information</h3>
+                                    </div>-->
+                                  
+
+                                    <button  (click)="passercommande()" class="btn-first green-btn text-custom-white full-width fw-500">Passer votre commande</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="float:right">
+                    <div >
+                        <div class="cart-detail-box">
+                            <div class="card">
+                                <div class="card-header padding-15 fw-700">
+                                    Votre commande 
+                                   
+                                </div>
+                                <div class="card-body no-padding" id="scrollstyle-4">
+                                    <div class="cat-product-box" *ngFor="let product of Commandeapayer">
+                                        <div class="cat-product">
+                                            <div class="cat-name">
+                                                <a>
+                                                    <p class="text-light-green"><span class="text-dark-white">{{product.nbr}}</span> {{product.nom}} <span class="text-light-white">{{product.prix}} DT</span> </p> 
+                                                </a>
+                                            </div>
+
+
+                                            <div class="price">
+                                                <a class="text-dark-white fw-500">
+                                                    {{product.prixT}} DT
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="item-total">
+                                        <div class="total-price border-0 pb-0">
+                                            <span class="text-dark-white fw-600">Prix totale:</span>
+                                            <span class="text-dark-white fw-600">{{prix}} DT</span>
+                                        </div>
+                                        <div class="total-price border-0 pt-0 pb-0">
+                                            <span class="text-dark-white fw-600">Frais de livraison:</span>
+                                            <span class="text-dark-white fw-600">10 DT</span>
+                                        </div>
+                                        <div class="total-price border-0 pt-0 pb-0">
+                                            <span class="text-light-green fw-600">TOTAL:</span>
+                                            <span class="text-light-green fw-600">{{Prixtotale}} DT</span>
+                                        </div>
+                                        <!--<div class="total-price border-0 ">
+                                            <span class="text-light-black fw-700">Total:</span>
+                                            <span class="text-light-black fw-700">{{Prixtotale}} DT</span>
+                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+
+    <footer class="bg-light-theme pt-0 u-line bg-black">
+        <swiper [config]="configfooter">
+            <div class="swiper-wrapper">
+
+
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-1.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-2.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-3.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-4.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-5.jpg">
+                </div>
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-6.jpg">
+                </div>
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-7.jpg">
+                </div>
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-8.jpg">
+                </div>
+            </div>
+
+        </swiper>
+
+
+
+
+        <app-footer></app-footer>
+    </footer>
+ 
+    <!-- footer -->
+    <!-- modal boxes -->
+    <!-- Theme skins -->
+   
+    <!-- Theme skins -->
+    <!-- Place all Scripts Here -->
+    <!-- jQuery -->
+    <script src="assets/homecss/assets/js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="assets/homecss/assets/js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/homecss/assets/js/bootstrap.min.js"></script>
+    <!-- Range Slider -->
+    <script src="assets/homecss/assets/js/ion.rangeSlider.min.js"></script>
+    <!-- Swiper Slider -->
+    <script src="assets/homecss/assets/js/swiper.min.js"></script>
+    <!-- Nice Select -->
+    <script src="assets/homecss/assets/js/jquery.nice-select.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/homecss/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Maps -->
+    <!-- sticky sidebar -->
+    <script src="assets/homecss/assets/js/sticksy.js"></script>
+    <!-- Munch Box Js -->
+    <!--<script src="assets/homecss/assets/js/quickmunch.js"></script>-->
+    <!-- /Place all Scripts Here -->
+</body>
+</html>

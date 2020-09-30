@@ -1,0 +1,92 @@
+<!--<div ngbDropdown class="d-inline-block dropdown">
+    <a style="margin-top:12px"class="nav-link" id="dropdownBasic1" ngbDropdownToggle><img  src="../assets/img/kart.png" style="width:30px;height:30px;color:orangered" /></a>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary" style="width:500px; height:auto">
+        <ul>
+            <li style="margin:10px;" width="20px" height="20px" *ngFor="let product of Menu">
+                <div style="float:right;">
+
+                    <div>
+
+
+                        <input id="nbrdeproduit{{product.id}}panier" type="number" value="0" min="0" style="width:40px;height:30px;" />
+
+                        <input type="image" src="../assets/img/minus.png" class="img-circle img-no-padding img-responsive" style="width:30px;height:30px;" (click)="onminusclicked(product.id)" />
+                        <input type="image" (click)="onplusclicked(product.id)" class="img-circle img-no-padding img-responsive" src="../assets/img/plus.png" style="width:30px;height:30px;float:right" />
+                    </div>
+                </div>
+
+                <h6>{{product.prixT}} DT</h6>
+
+                <h6>{{product.name}} {{product.prix}} DT </h6>
+
+            </li>
+        </ul>
+        <div style="margin-left:200px">
+            <h6>Prix totale: {{PrixCommande}} DT</h6>
+        </div>
+        <div style="margin-left:213px">
+            <button [routerLink]="['/payement']" [queryParams]="{ prix: PrixCommande}" class="btn btn-outline-success btn-round">
+                Payer
+            </button>
+        </div>     
+
+          
+
+    </div>
+</div>-->
+
+<div class="cart-btn cart-dropdown" >
+    <a class="text-light-green fw-700">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="user-alert-cart">{{Menu.length}}</span>
+    </a>
+    <div class="cart-detail-box" style="width:300px">
+        <div class="card">
+            <div class="card-header padding-15">Votre commande</div>
+            <div class="card-body no-padding">
+                <div class="cat-product-box" *ngFor="let product of Menu">
+                    <div class="cat-product">
+                        <div class="cat-name">
+                            <a >
+                                <p class="text-light-green"><span class="text-dark-white">{{product.nbr}}</span> {{product.nom}} </p> <span class="text-light-white">{{product.prix}} DT</span>
+                            </a>
+                        </div>
+                      
+
+                           
+
+                        <input type="image" (click)="onminusclicked(product.id)" src="../assets/img/minus (1).png" class="img-circle img-no-padding img-responsive" style="float:right;width:15px;height:15px;margin-top:2px" />
+
+
+                       <input id="nbrdeproduit{{product.id}}panier" type="number" value="0" min="0" style="float:right;width:20px;height:20px;" />
+                        <input type="image" (click)="onplusclicked(product.id)" src="../assets/img/plus (1).png" class="img-circle img-no-padding img-responsive" style="width:15px;height:15px;float:right;margin-top:2px" />
+
+                        <div class="price">
+                            <a  class="text-dark-white fw-500">
+                                {{product.prixT}} DT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+           
+                <div class="item-total">
+                    <div class="total-price border-0">
+                        <span class="text-dark-white fw-700">Prix totale:</span>
+                        <span class="text-dark-white fw-700">{{PrixCommande}} DT</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card-footer padding-15">
+                <a class="btn-first green-btn text-custom-white full-width fw-500" (click)="onpayerclicked()" >Passer au payement</a>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>

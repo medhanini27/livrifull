@@ -1,0 +1,770 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="#">
+    <meta name="description" content="#">
+    <title>Livri.tn | Livraison de nourriture</title>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="#">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="#">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="#">
+    <link rel="apple-touch-icon-precomposed" href="#">
+    <link rel="shortcut icon" href="#">
+
+</head>
+
+<body>
+
+
+
+
+
+   
+
+    <div class="header">
+        <header class="full-width">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mainNavCol">
+                        <!-- logo -->
+                        <div class="logo mainNavCol">
+                            <a href="#">
+                                <img src="assets/img/Logo.png" class="img-fluid" alt="Logo">
+                            
+                            </a>
+                        </div>
+                       
+                        <div class="main-search mainNavCol">
+                            <form class="main-search search-form full-width">
+                                <div class="row">
+                            
+                                 
+                                    <div class="col-lg-6 col-md-7">
+                                        
+                                       
+                                            <ng-container>
+                                                <div ngbDropdown class="d-inline-block">
+                                                    <div class="search-box padding-10">
+                                                        <input autocomplete="off"  id="searchbar" (input)="onsearch()"class="form-control" placeholder="Nom du restaurant" ngbDropdownToggle>
+                                                    </div>
+                                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                                                        <div *ngFor="let rest of RestSearch;let x = index;" [routerLink]="['/menu']" [queryParams]="{ id: rest.id}">
+                                                            <img src="https://livri.glitch.me/uploads/{{rest.img}}" *ngIf="x<3" style="width:30px;height:30px;"/>
+                                                            <input  type="button" ngbDropdownItem value="{{rest.nom}}" *ngIf="x<3" />
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+
+                                       
+                                    </div>
+                                  
+                                </div>
+                            </form>
+                        </div>
+                        <div class="right-side fw-700 mainNavCol">
+                           
+                            <!-- mobile search -->
+                          
+                            <!-- mobile search -->
+                            <!-- user account -->
+                            <div class="user-details p-relative" id="usercart" hidden="true">
+                                <a  class="text-light-white fw-500">
+                                    <img src="{{userimg}}"  class="rounded-circle" alt="userimg" style="width:30px;height:30px"> <span>{{user["firstName"]}}</span>
+                                </a>
+                                <div class="user-dropdown" style="width:300px">
+                                    <!--<ul>
+                                        <li>
+                                            <a >
+                                                <div class="icon">
+                                                    <i class="flaticon-rewind"></i>
+                                                </div> <span class="details">Past Orders</span>
+                                            </a>
+                                        </li>
+                                       
+                                      
+                                     
+                                  
+                                        <li>
+                                            <a >
+                                                <div class="icon">
+                                                    <i class="flaticon-user"></i>
+                                                </div> <span class="details">Account</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a >
+                                                <div class="icon">
+                                                    <i class="flaticon-board-games-with-roles"></i>
+                                                </div> <span class="details">Help</span>
+                                            </a>
+                                        </li>
+                                    </ul>-->
+                                    <div class="user-footer">
+                                        <span class="text-light-black">Ne pas {{user["firstName"]}}?</span> <button (click)="signOut()"class="btn btn-outline-danger btn-danger btn-round">Déconnexion</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="signindiv" hidden="true">
+                                <button [routerLink]="['/signup']" class="btn btn-outline-danger btn-danger btn-round" >SE CONNECTER</button>
+
+                            </div>
+                            <!-- mobile search -->
+                            <!-- user notification -->
+                        
+                            <!-- user notification -->
+                            <!-- user cart -->
+                            <app-panier></app-panier>
+                            <!-- user cart -->
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="main-sec"></div>
+    <!-- Navigation -->
+    <!-- slider -->
+
+    <swiper [config]="config" style="height:100vh">
+
+        <div class="swiper-wrapper"style="height:100%">
+
+            <div class="swiper-slide">
+                <img src="assets/homecss/assets/img/about/blog/1920x700/banner-4.jpg" class="img-fluid full-width" alt="Banne"style="height:100%; filter: blur(2px);"/>
+                <div class="transform-center">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-7 align-self-center">
+                                <h1 class="text-custom-white fw-600">Les meilleurs restaurants de Tunisie </h1>
+                                <h3 class="text-custom-white fw-400">dans votre main</h3>
+                                <!--<a href="restaurant.html" class="btn-second btn-submit">Learn More.</a>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="assets/homecss/assets/img/about/blog/1920x700/banner-3.jpg" class="img-fluid full-width" alt="Banner"style="height:100%; filter: blur(2px);" />
+                <div class="transform-center">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-7 align-self-center">
+                                <h1 class="text-custom-white fw-600">Les meilleurs restaurants de Tunisie </h1>
+                                <h3 class="text-custom-white fw-400">dans votre main</h3>
+                                <!--<a href="restaurant.html" class="btn-second btn-submit">Learn More.</a>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="swiper-slide">
+                <img src="assets/homecss/assets/img/about/blog/1920x700/banner-1.jpg" class="img-fluid full-width" alt="Banner"style="height:100%; filter: blur(2px);" />
+                <div class="transform-center">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-lg-7 align-self-center">
+                                <h1 class="text-custom-white fw-600">Les meilleurs restaurants de Tunisie </h1>
+                                <h3 class="text-custom-white fw-400">dans votre main</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Add Pagination -->
+
+        <!-- Add Arrows -->
+
+    </swiper>
+
+
+
+
+    
+    <section class="browse-cat u-line section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header-left">
+                        <h3 class="text-light-black header-title title">Parcourir par cuisine <span  (click)="seeallresteaurant()" class="category-btn">Voir tous les restaurants</span></h3>
+                    </div>
+                </div>
+                <div class="row" style="margin:0 auto;">
+                            <div class="swiper-slide" >
+                                    <a id="highlight" href="javascript:void(0)" *ngFor="let cat of Category" (click)="oncategoryclick1(cat.name)" style="float:left;margin-left:40px;" class="categories rounded-top rounded-bottom">
+                                        <div class="icon text-custom-white  " style="height:70px;width:70px;">
+                                            <img src="assets/img/{{cat.name}}.png" class="rounded-circle" alt="categories" >
+                                        </div> <span class="text-light-black cat-name">{{cat.name}} </span>
+                                    </a>
+                                
+                                
+                            </div>
+                        <!-- Add Arrows -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Explore collection -->
+    <section class="ex-collection section-padding">
+        <div id="restliste" class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header-left">
+                        <h3 class="text-light-black header-title title">Découvrez nos collections</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" (click)="gotomenufromad(0)" id="div0" hidden="true">
+                    <div class="ex-collection-box mb-xl-20">
+                        <img  id="imgBanner1" style="width:540px;height:300px" src="assets/homecss/assets/img/restaurants/540x300/collection-1.jpg" class="img-fluid full-width" alt="image">
+                        <div class="transform-center" id="adtext1">
+                            <div class="container">
+                                <div class="row justify-content-start">
+                                    <div class="col-lg-7 align-self-center">
+                                        <h3 class="text-custom-white fw-600">Contacter nous pour reserve cette bannier </h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-type overlay padding-15">
+                            <a  class="category-btn">Conseillé</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"  (click)="gotomenufromad(1)" id="div1" hidden="true">
+                    <div class="ex-collection-box mb-xl-20">
+                        <img  id="imgBanner2" style="width:540px;height:300px" src="assets/homecss/assets/img/restaurants/540x300/collection-2.jpg" class="img-fluid full-width" alt="image">
+                        <div class="transform-center" id="adtext2">
+                            <div class="container">
+                                <div class="row justify-content-start">
+                                    <div class="col-lg-7 align-self-center">
+                                        <h3 class="text-custom-white fw-600">Contacter nous pour reserve cette bannier </h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-type overlay padding-15">
+                            <a  class="category-btn">Conseillé</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="large-product-box mb-xl-20 p-relative">
+                        <img src="assets/homecss/assets/img/restaurants/255x587/Banner-3.jpg" class="img-fluid full-width" alt="image">
+                        <div class="category-type overlay padding-15">
+                            <!--<button class="category-btn">Most popular near you</button> <a href="restaurant.html" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>-->
+                        </div>
+                    </div>
+                </div>
+               
+
+
+
+
+
+            <div  class="row" *ngFor="let dummy of ' '.repeat(Restnbr).split(''), let x = index;">
+                <div class="col-lg-3 col-md-4" *ngIf="x%2==0">
+                    <div class="large-product-box mb-xl-20 p-relative">
+                        <img src="assets/homecss/assets/img/restaurants/255x587/Banner-{{x}}.jpg" class="img-fluid full-width" alt="image">
+                        <div class="category-type overlay padding-15">
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="col-lg-9 col-md-8">
+                    <div class="row">
+
+                        <div  class="col-lg-4 col-md-6 col-sm-6" *ngFor="let rest of RestaurantS| slice:x*6;index as i;">
+                            <div  [routerLink]="['/menu']" [queryParams]="{ id: rest.id}" class="product-box mb-xl-20" *ngIf="i<6">
+                                <div class="product-img">
+                                    <a >
+                                        <img src="https://livri.glitch.me/uploads/{{rest.img}}" class="img-fluid full-width" alt="product-img" style="height:200px">
+                                    </a>
+                                    <div class="overlay">
+                                        <div class="product-tags padding-10">
+                                            <span class="circle-tag">
+                                                <img src="assets/homecss/assets/img/svg/013-heart-1.svg" alt="tag">
+                                            </span>
+                                            <!--<div class="custom-tag">
+                                                <span class="text-custom-white rectangle-tag bg-gradient-red">
+                                                    10%
+                                                </span>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-caption">
+                                    <div class="title-box">
+                                        <h6 class="product-title"><a href="restaurant.html" class="text-light-black "><b> {{rest.nom}}</b></a></h6>
+                                        <div class="tags">
+                                            <span class="text-custom-white rectangle-tag bg-yellow">
+                                                {{rest.address}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="text-light-white">{{rest.description}}</p>
+                                    <div class="product-details">
+                                        <div class="price-time">
+                                            <span class="text-light-black time">30-40 min</span>
+                                            <!--<span class="text-light-white price"></span>-->
+                                        </div>
+                                        <div class="rating">
+                                            <span>
+                                                <i class="fas fa-star text-yellow"></i>
+                                                <i class="fas fa-star text-yellow"></i>
+                                                <i class="fas fa-star text-yellow"></i>
+                                                <i class="fas fa-star text-yellow"></i>
+                                                <i class="fas fa-star text-yellow"></i>
+                                            </span>
+                                            <!--<span class="text-light-white text-right">4225 ratings</span>-->
+                                        </div>
+                                    </div>
+                                    <div class="product-footer">
+                                        <span class="text-custom-white square-tag">
+                                            <img src="assets/homecss/assets/img/svg/004-leaf.svg" alt="tag">
+                                        </span>
+                                        <span class="text-custom-white square-tag">
+                                            <img src="assets/homecss/assets/img/svg/006-chili.svg" alt="tag">
+                                        </span>
+                                        <span class="text-custom-white square-tag">
+                                            <img src="assets/homecss/assets/img/svg/005-chef.svg" alt="tag">
+                                        </span>
+                                        <span class="text-custom-white square-tag">
+                                            <img src="assets/homecss/assets/img/svg/008-protein.svg" alt="tag">
+                                        </span>
+                                        <span class="text-custom-white square-tag">
+                                            <img src="assets/homecss/assets/img/svg/009-lemon.svg" alt="tag">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4" *ngIf="x%2==1">
+                    <div class="large-product-box mb-xl-20 p-relative">
+                        <img src="assets/homecss/assets/img/restaurants/255x587/Banner-{{x}}.jpg" class="img-fluid full-width" alt="image">
+                        <div class="category-type overlay padding-15">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="banner-adv2 mb-xl-20">
+                            <img src="assets/homecss/assets/img/restaurants/1110x100/vbanner-{{x}}.jpg" class="img-fluid full-width" alt="banner"> <span class="text">
+                            </span>
+                            <span class="close-banner"></span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- advertisement banner-->
+           
+            
+                <div class="col-lg-3 col-md-4">
+                    <div class="large-product-box mb-xl-20 p-relative">
+                        <img src="assets/homecss/assets/img/restaurants/255x587/Banner-3.jpg" class="img-fluid full-width" alt="image">
+                        <div class="category-type overlay padding-15">
+                            <!--<button class="category-btn">Most popular near you</button> <a href="restaurant.html" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" (click)="gotomenufromad(2)" id="div2" hidden="true" >
+                    <div class="ex-collection-box mb-sm-20">
+                        <img  id="imgBanner3" style="width:540px;height:300px"src="assets/homecss/assets/img/restaurants/540x300/collection-3.jpg" class="img-fluid full-width" alt="image">
+                        <div class="transform-center" id="adtext3">
+                            <div class="container">
+                                <div class="row justify-content-start">
+                                    <div class="col-lg-7 align-self-center">
+                                        <h3 class="text-custom-white fw-600">Contacter nous pour reserve cette bannier </h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-type overlay padding-15">
+                            <a  class="category-btn">Conseillé</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"   (click)="gotomenufromad(3)" id="div3" hidden="true">
+                    <div class="ex-collection-box">
+                        <img  id="imgBanner4"style="width:540px;height:300px" src="assets/homecss/assets/img/restaurants/540x300/collection-4.jpg" class="img-fluid full-width" alt="image">
+                        <div class="transform-center" id="adtext4">
+                            <div class="container">
+                                <div class="row justify-content-start">
+                                    <div class="col-lg-7 align-self-center">
+                                        <h3 class="text-custom-white fw-600">Contacter nous pour reserve cette bannier </h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-type overlay padding-15">
+                            <a  class="category-btn">Conseillé</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Explore collection -->
+    <!-- footer -->
+    <!--<div class="footer-top section-padding bg-black">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-sm-4 col-6 mb-sm-20">
+                    <div class="icon-box">
+                        <span class="text-light-green"><i class="flaticon-credit-card-1"></i></span>
+                        <span class="text-custom-white">100% Payment<br>Secured</span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-sm-20">
+                    <div class="icon-box">
+                        <span class="text-light-green"><i class="flaticon-wallet-1"></i></span>
+                        <span class="text-custom-white">Support lots<br> of Payments</span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6 mb-sm-20">
+                    <div class="icon-box">
+                        <span class="text-light-green"><i class="flaticon-help"></i></span>
+                        <span class="text-custom-white">24 hours / 7 days<br>Support</span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6">
+                    <div class="icon-box">
+                        <span class="text-light-green"><i class="flaticon-truck"></i></span>
+                        <span class="text-custom-white">Free Delivery<br>with $50</span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6">
+                    <div class="icon-box">
+                        <span class="text-light-green"><i class="flaticon-guarantee"></i></span>
+                        <span class="text-custom-white">Best Price<br>Guaranteed</span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-4 col-6">
+                    <div class="icon-box">
+                        <span class="text-light-green"><i class="flaticon-app-file-symbol"></i></span>
+                        <span class="text-custom-white">Mobile Apps<br>Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <footer class="bg-light-theme pt-0 u-line bg-black">
+        <swiper [config]="configfooter">
+            <div class="swiper-wrapper">
+
+              
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-1.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-2.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-3.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-4.jpg">
+                </div>
+
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-5.jpg">
+                </div>
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-6.jpg">
+                </div>
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-7.jpg">
+                </div>
+                <div class="swiper-slide">
+
+                    <img src="assets/homecss/assets/img/restaurants/250x200/insta-8.jpg">
+                </div>
+                </div>
+
+        </swiper>
+
+
+
+
+<app-footer></app-footer>
+    <!--<div class="container-fluid">
+        <div class="row">
+            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-contact">
+                    <h6 class="text-custom-white">Need Help</h6>
+                    <ul>
+                        <li class="fw-600">
+                            <span class="text-light-white">Call Us</span> <a href="tel:" class="text-custom-white">+(347) 123 456 789</a>
+                        </li>
+                        <li class="fw-600">
+                            <span class="text-light-white">Email Us</span> <a href="mailto:" class="text-custom-white">demo@domain.com</a>
+                        </li>
+                        <li class="fw-600">
+                            <span class="text-light-white">Join our twitter</span> <a href="#" class="text-custom-white">@quickmunch</a>
+                        </li>
+                        <li class="fw-600">
+                            <span class="text-light-white">Join our instagram</span> <a href="#" class="text-custom-white">@quickmunch</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-links">
+                    <h6 class="text-custom-white">Get to Know Us</h6>
+                    <ul>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Socialize</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Quickmunch</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Perks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-links">
+                    <h6 class="text-custom-white">Let Us Help You</h6>
+                    <ul>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Account Details</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Order History</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Find restaurant</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Login</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Track order</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-links">
+                    <h6 class="text-custom-white">Doing Business</h6>
+                    <ul>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Suggest an Idea</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Be a Partner restaurant</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Create an Account</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-light-white fw-600">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-links">
+                    <h6 class="text-custom-white">Download Apps</h6>
+                    <div class="appimg">
+                        <a href="#">
+                            <img src="assets/homecss/assets/img/playstore.jpg" class="img-fluid" alt="app logo">
+                        </a>
+                    </div>
+                    <div class="appimg">
+                        <a href="#">
+                            <img src="assets/homecss/assets/img/appstore.jpg" class="img-fluid" alt="app logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                <div class="footer-contact">
+                    <h6 class="text-custom-white">Newsletter</h6>
+                    <form class="subscribe_form">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-submit" name="email" placeholder="Enter your email">
+                            <span class="input-group-btn">
+                                <button class="btn btn-second btn-submit" type="button"><i class="fas fa-paper-plane"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="ft-social-media">
+                    <h6 class="text-center text-custom-white">Follow us</h6>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</footer>
+  
+    <!-- footer -->
+    <!-- Builder Pannel start-->
+    <!--<div class="custom-builder-panel transition-4">
+        <div class="builder-switch">
+            <span class="switch-icon">
+                <i class="fas fa-caret-right"></i>
+            </span>
+        </div>
+        <a href="builder/index.html">
+            <div class="builder-slide-panel transition-4">
+                <a href="builder/index.html"><h4 class="mb-0">Try Page Builder</h4></a>
+            </div>
+        </a>
+    </div>-->
+    <!-- Builder Pannel End-->
+    <!-- Side-panel -->
+    <!--<div id="side-panel">
+        <div class="themes-wrapper">
+            <a href="#" id="toggle-icon" class="vertical-link">Choose a Template</a>
+            <div class="themes-wrapper-inner">
+                <a href="index-2.html">
+                    <img src="../../assets/homecss/assets/img/logo.png" class="img-fluid" alt="quickmunch">
+                </a>
+                <a href="indiabox/index.html" target="_blank">
+                    <img src="indiabox/../../assets/homecss/assets/img/logo.png" class="img-fluid" alt="indiabox">
+                </a>
+                <a href="pizzabox/index.html" target="_blank">
+                    <img src="pizzabox/../../assets/homecss/assets/img/logo.png" class="img-fluid" alt="pizza">
+                </a>
+                <a href="seafoodbox/index.html" target="_blank">
+                    <img src="seafoodbox/../../assets/homecss/assets/img/logo.png" class="img-fluid" alt="sailorbox">
+                </a>
+                <a href="sushibox/index.html" target="_blank">
+                    <img src="sushibox/../../assets/homecss/assets/img/logo.png" class="img-fluid" alt="sushibox">
+                </a>
+                <a href="sweetbox/index.html" target="_blank">
+                    <img src="sweetbox/../../assets/homecss/assets/img/logo.png" class="img-fluid" alt="sweetbox">
+                </a>
+                <a href="https://themeforest.net/item/quickmunch-food-delivery-html5-template/28252293" class="btn-second btn-submit full-width" target="_blank">BUY NOW</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>-->
+    <!-- Side-panel -->
+    <!-- modal boxes -->
+    <!--<div class="modal fade" id="address-box">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title fw-700">Change Address</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="location-picker">
+                        <input type="text" class="form-control" placeholder="Enter a new address">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="search-box">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="search-box p-relative full-width">
+                        <input type="text" class="form-control" placeholder="Pizza, Burger, Chinese">
+                    </div>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>-->
+
+    <!-- Theme skins -->
+ 
+    <!-- Place all Scripts Here -->
+    <!-- jQuery -->
+    <script src="assets/homecss/assets/js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="assets/homecss/assets/js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/homecss/assets/js/bootstrap.min.js"></script>
+    <!-- Range Slider -->
+    <script src="assets/homecss/assets/js/ion.rangeSlider.min.js"></script>
+    <!-- Swiper Slider -->
+    <script src="assets/homecss/assets/js/swiper.min.js"></script>
+    <!-- Nice Select -->
+    <script src="assets/homecss/assets/js/jquery.nice-select.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/homecss/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Maps -->
+    <!-- sticky sidebar -->
+    <script src="assets/homecss/assets/js/sticksy.js"></script>
+    <!-- Munch Box Js -->
+    <script src="assets/homecss/assets/js/quickmunch.js"></script>
+    <!-- /Place all Scripts Here -->
+</body>
+</html>
+<style>
+  #highlight:hover, #highlight:active, #highlight:focus {
+    background-color:lightgray;
+}
+</style>
