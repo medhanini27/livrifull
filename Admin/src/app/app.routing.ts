@@ -5,11 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LivreurComponent } from './livreur/livreur.component';
-import { MapsComponent } from './maps/maps.component';
+import { loginComponent } from './login/login.component';
 
 const routes: Routes = [
     { path: 'livreur', component: LivreurComponent },
-    { path: 'login', component: MapsComponent },
+    { path: 'login', component: loginComponent },
 
   {
     path: '',

@@ -6,11 +6,11 @@ import {Router}from"@angular/router"
 
 
 @Component({
-  selector: 'app-maps',
-  templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.css']
+    selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class MapsComponent implements OnInit {
+export class loginComponent implements OnInit {
     test: Date = new Date();
 
     constructor(private http: HttpClient, private router: Router) { }

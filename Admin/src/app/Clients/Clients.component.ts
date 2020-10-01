@@ -3,11 +3,11 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import {BaseUrl} from '../varglobale.service';
 
 @Component({
-  selector: 'app-typography',
-  templateUrl: './typography.component.html',
-  styleUrls: ['./typography.component.css']
+  selector: 'app-clients',
+  templateUrl: './Clients.component.html',
+  styleUrls: ['./Clients.component.css']
 })
-export class TypographyComponent implements OnInit {
+export class ClientsComponent implements OnInit {
 
     users = [];
     p: number = 1;

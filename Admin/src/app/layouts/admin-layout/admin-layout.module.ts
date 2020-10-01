@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
+import { CommandesComponent } from '../../Commandes/Commandes.component';
+import { ResteaurantsComponent } from '../../Resteaurants/Resteaurants.component';
+import { ClientsComponent } from '../../Clients/Clients.component';
 import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
+import { loginComponent } from '../../login/login.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { BanniereComponent } from '../../Banniere/Banniere.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatRippleModule} from '@angular/material/core';
@@ -38,13 +38,13 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
   ],
   declarations: [
     DashboardComponent,
-    UserProfileComponent,
-    TableListComponent,
-    TypographyComponent,
+      CommandesComponent,
+      ResteaurantsComponent,
+      ClientsComponent,
     IconsComponent,
-    MapsComponent,
+      loginComponent,
     NotificationsComponent,
-    UpgradeComponent,
+      BanniereComponent,
   ]
 })
 

@@ -5,11 +5,11 @@ declare var $: any;
 import {BaseUrl} from '../varglobale.service';
 
 @Component({
-  selector: 'app-table-list',
-  templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css']
+    selector: 'app-Resteaurants',
+    templateUrl: './Resteaurants.component.html',
+    styleUrls: ['./Resteaurants.component.css']
 })
-export class TableListComponent implements OnInit {
+export class ResteaurantsComponent implements OnInit {
     @ViewChild('UploadFileInput', { static: false })
     public mg: string;
     uploadFileInput: ElementRef;

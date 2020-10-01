@@ -4,11 +4,11 @@ declare var $: any;
 import {BaseUrl} from '../varglobale.service';
 
 @Component({
-  selector: 'app-upgrade',
-  templateUrl: './upgrade.component.html',
-  styleUrls: ['./upgrade.component.css']
+    selector: 'app-Banniere',
+    templateUrl: './Banniere.component.html',
+    styleUrls: ['./Banniere.component.css']
 })
-export class UpgradeComponent implements OnInit {
+export class BanniereComponent implements OnInit {
     PromotionBanner = ["0", "0", "0", "0"];
     Restaurant = [];
 

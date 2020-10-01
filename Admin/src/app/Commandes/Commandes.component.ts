@@ -3,11 +3,11 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import {BaseUrl} from '../varglobale.service';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+    selector: 'app-Commandes',
+  templateUrl: './Commandes.component.html',
+  styleUrls: ['./Commandes.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class CommandesComponent implements OnInit {
     Commandes = [];
     p: number = 1;
 
