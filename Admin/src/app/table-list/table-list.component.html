@@ -1,0 +1,404 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card" id="restable">
+                  <div class="card-header card-header-danger">
+                        <div style="float:left">
+                            <h4 class="card-title ">Resteaurants</h4>
+                            <p class="card-category"> liste des resteaurant a gerer</p>
+                        </div>
+                      <div style="float:right" ><p class="card-category"> Ajouter un resteaurant</p><input type="image" (click)="onaddrest()" src="assets/img/add.png" style="width:60px;height:60px;" /></div>
+
+                  </div>
+                  <div class="card-body" >
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Logo
+                                  </th>
+                                  <th>
+                                      Name
+                                  </th>
+                                  <th>
+                                      Location
+                                  </th>
+                                  <th>
+                                      Description
+                                  </th>
+                                  <th>
+                                      Action
+                                  </th>
+                              <th>
+                                  show on home
+                              </th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let rest of Restaurant |paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+                                      <td>
+                                          <img src="https://livri.glitch.me/uploads/{{rest.img}}" style="height:50px;width:50px" />
+                                      </td>
+                                      <td>
+                                          {{rest.nom}}
+                                      </td>
+                                      <td>
+                                          {{rest.address}}
+                                      </td>
+                                      <td>
+                                          {{rest.description}}
+                                      </td>
+                                      <td class="text-primary">
+                                          <button (click)="oneditclick(rest.id,rest.nom,rest.description,rest.address,rest.img)"  mat-raised-button type="button" matTooltip="Edit Restaurant" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">edit</i>
+                                          </button>
+                                          <button  (click)="ondeleteclick(rest.id)" mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">close</i>
+                                          </button>
+                                          
+                                          <input type="button" class="btn btn-outline-success" (click)="onmenuclik(rest.id,rest.nom,rest.img)" value="Menu" />
+
+                                      </td>
+                                      <td>
+                                          <mat-slide-toggle (change)="onhomesetting($event,rest.id)" [checked]="rest.onhome==1"></mat-slide-toggle>
+
+                                      </td>
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+
+                          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+                      </div>
+                  </div>
+              </div>
+              <!--liste menu-->
+              <div class="card"  id="prodtable" hidden="true">
+                  <div class="card-header card-header-danger">
+                      <div style="float:left">
+
+                          <input type="image" (click)="onreturnclick()" src="assets/img/return.png" style="width:30px;height:30px" />
+                          <h4 class="card-title "><img src="https://livri.glitch.me/uploads/{{editrestimg}}" style="width:40px;height:40px;" /><a>{{editrestnom}} Menu</a></h4>
+                          <p class="card-category"> liste des produits a gerer</p>
+                          </div>
+                          <input type="image" (click)="onaddprod()" src="assets/img/add.png" style="width:60px;height:60px;float:right" />
+                      </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                              <th>
+                                  Logo
+                              </th>
+                              <th>
+                                  Name
+                              </th>
+                              <th>
+                                  Description
+                              </th>
+                              <th>
+                                  Prix
+                              </th>
+                              <th>
+                                  Action
+                              </th>
+                              
+                              <tbody>
+                                  <tr *ngFor="let prod of Menu |paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+                                      <td>
+                                          <img src="https://livri.glitch.me/uploads/{{prod.img}}" style="height:50px;width:50px" />                                      </td>
+                                      <td>
+                                          {{prod.nom}}
+                                      </td>
+                                      <td>
+                                          {{prod.description}}
+                                      </td>
+                                      <td>
+                                          {{prod.prix}} DT
+                                      </td>
+                                      <td class="text-primary">
+                                          <button (click)="oneditMenuclick(prod.id,prod.nom,prod.description,prod.prix,prod.img)" mat-raised-button type="button" matTooltip="Edit Product" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">edit</i>
+                                          </button>
+                                          <button (click)="ondeleteMenuclick(prod.id)" mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">close</i>
+                                          </button>
+                                      </td>
+                                     
+                                  </tr>
+
+                              </tbody>
+                          </table>
+                          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+                      </div>
+                  </div>
+              </div>
+
+
+
+
+          </div>
+          <div class="col-md-12">
+              <div class="card" id="divrest" hidden="true">
+                  <div class="card-header card-header-tabs card-header-primary">
+                      <div class="ct-chart" id="completedTasksChart">
+                          <h2 id="titletext"  >Add Restaurant</h2>
+
+                      </div>
+                  </div>
+                  <form [formGroup]="fileUploadForm" (ngSubmit)="onFormSubmit()">
+                      <div class="row">
+                          <div class="col-sm-12">
+                              
+                              <mat-form-field class="example-full-width">
+                                  <input id="name"
+                                         name="name"
+                                         type="text"
+                                         class="form-control validate"
+                                         
+                                         matInput
+                                         placeholder="name" />
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                  <textarea class="form-control validate"
+                                            rows="3"
+                                            id="description"
+                                            matInput
+                                             placeholder="description"
+                                            ></textarea>
+                              </mat-form-field>
+
+
+                              <div class="col" style="margin-top:5px;margin-bottom:30px;width:100%;height:60px">
+
+
+
+                                      <label style="float:left;margin-right:20px;margin-top:10px;font-size:x-large;color:black">Choisir votre address:</label>
+                                      <div style="float:left"   class="nav-item dropdown">
+                                          <input type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBasic1"  data-toggle="dropdown" aria-haspopup="true" value="{{btn1}}" />
+                                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownBasic1">
+                                              <a class="dropdown-item"   (click)="ongouvernemantclick('Bizerte')">Bizerte </a>
+                                              <a class="dropdown-item"   (click)="ongouvernemantclick('Tunis')">Grand Tunis </a>
+                                              <a class="dropdown-item"  (click)="ongouvernemantclick('Sousse')" >Sousse </a>
+
+                                             </div>
+                                      </div>
+
+
+                                  <div style="float:left"  *ngIf="haschosengouvernemant">
+                                      <div class="nav-item dropdown">
+                                          <input type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBasic2" data-toggle="dropdown" aria-haspopup="true" value="{{btn2}}" />
+                                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownBasic2">
+                                              <a class="dropdown-item" id="localisation"   (click)="onzoneclick(gouverment)" *ngFor="let gouverment of gouvernemant" >{{gouverment}}" </a>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div style="margin-top:10px;margin-bottom:10px">
+                                  <h3>Choisir votre category</h3>
+                                  <div *ngFor="let category of Category">
+                                      <input id="{{category.name}}checkbox" type="checkbox" />
+                                      {{category.name}}
+                                  </div>
+                              </div>
+
+                              <div id="imagetext">
+                                  <h6 class="head-title margin-top-8"><span>Select Logo File</span></h6>
+                              </div>
+                          </div>
+
+                          <div class="col-sm-6" id="fileuplaoddiv">
+
+                              <div class="custom-file">
+
+                                  <input type="file"  id="customFile" name="uploadedImage"
+                                         (change)="onFileSelect($event)" #UploadFileInput>
+
+                                  <!--<label  class="custom-file-label" for="customFile">{{fileInputLabel || 'Choose File'}}</label>-->
+
+                              </div>
+
+                              <div class="col-sm-6" style="margin-top:10px;margin-left:60%"> <button class="btn btn-primary" type="submit">Add Restaurant Now</button> </div>
+
+                          </div>
+
+                          <div id="imageeditdiv" hidden="true" style="margin-top:20px;margin-left:45%">
+                              <img id="editlogo" class="imgediting" src="https://livri.glitch.me/uploads/{{imageedit}}" style="height:100px;width:100px" />
+
+                              <label for="file-input">
+                                  <img src="assets/img/edit.png" class="editlogo">
+
+                              </label>
+
+                              <input id="file-input" name="uploadedImage" type="file" style="display: none;" (change)="onEditFileSelect($event)" />
+
+
+                          </div>
+                          <div id="editbuttons" hidden="true" class="col-sm-6" style="margin-top:20px;margin-left:40%">
+                              <input type="button" class="btn btn-primary" (click)="onsaveeditclik()" value="Save" />
+                              <input type="button" class="btn btn-primary" (click)="oncanceleditclik()" value="Cancel" />
+
+                          </div>
+
+
+
+
+                      </div>
+                  </form>
+
+
+
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+      </div>
+
+
+
+
+      <div class="card" id="addproddiv" hidden="true" style="width:50%;margin-left:12%;float:left;">
+
+          <div class="container">
+
+
+
+
+
+              <div class="card-header card-header-tabs card-header-primary">
+                  <h2 id="titletext" >Add product</h2>
+              </div>
+                      <form [formGroup]="fileUploadForm" (ngSubmit)="onMenuFormSubmit()">
+                          <div class="row">
+                              <div class="col-sm-12">
+                                  <mat-form-field class="example-full-width">
+                                      <input id="nameprod"
+                                             name="name"
+                                             type="text"
+                                             class="form-control validate"
+                                             matInput
+                                             placeholder="name" />
+                                  </mat-form-field>
+                                  <mat-form-field class="example-full-width">
+
+                                      <input id="prix"
+                                             name="prix"
+                                             type="number"
+                                             class="form-control validate"
+                                             matInput
+                                             placeholder="prix"  />
+                                  </mat-form-field>
+                                  <mat-form-field class="example-full-width">
+                                      <textarea class="form-control validate"
+                                                rows="3"
+                                                id="descriptionprod"
+                                                matInput
+                                             placeholder="description" ></textarea>
+                                  </mat-form-field>
+
+
+
+
+
+
+                                  <div id="imagetext">
+                                      <h6 class="head-title margin-top-8"><span>Select product image</span></h6>
+                                  </div>
+                              </div>
+
+                              <div class="col-sm-6" id="Menufileuplaoddiv">
+
+                                  <div class="custom-file">
+
+                                      <input type="file" id="customFile" name="uploadedImage"
+                                             (change)="onMenuFileSelect($event)" #UploadFileInput>
+
+
+                                  </div>
+
+                                  <div class="col-sm-6" style="margin-top:20px;margin-left:60%"> <button class="btn btn-primary" type="submit">Add Product Now</button> </div>
+
+                              </div>
+
+                              <div id="Menuimageeditdiv" hidden="true" style="margin-top:20px;margin-left:45%">
+                                  <img id="Menueditlogo" class="imgediting" src="https://livri.glitch.me/uploads/{{Menuimageedit}}" style="height:100px;width:100px" />
+
+                                  <label for="Menufile-input">
+                                      <img src="assets/img/edit.png" class="editlogo">
+
+                                  </label>
+
+                                  <input id="Menufile-input" name="uploadedImage" type="file" style="display: none;" (change)="onMenuEditFileSelect($event)" />
+
+
+                              </div>
+                              <div id="Menueditbuttons" hidden="true" class="col-sm-6" style="margin-top:20px;margin-left:40%">
+                                  <input type="button" class="btn btn-primary" (click)="onMenusaveeditclik()" value="Save" />
+                                  <input type="button" class="btn btn-primary" (click)="onreturnclick()" value="Cancel" />
+
+                              </div>
+
+
+
+
+                          </div>
+                      </form>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+</div>
+
+
+
+
+
+<style>
+     .editlogo { 
+             position: absolute;
+                top: 75%;
+                 left: 40%;
+                  transform: translate(-70%, -70%);
+                  width:40px;
+                  height:40px;
+                  background-color:white;
+        }
+</style>

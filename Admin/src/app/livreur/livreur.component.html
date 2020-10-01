@@ -1,0 +1,88 @@
+<div *ngIf="usserrole==3">
+
+    <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+        <div class="logo">
+            <a class="simple-text">
+                <div class="logo-img">
+                    <img src="assets/img/food-delivery.png" />
+                </div>
+                Livreur
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li routerLinkActive="active">
+                    <a class="nav-link">
+                        <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel" style="margin-left:18%">
+        <app-navbar ></app-navbar>
+
+
+        <div class="container-fluid" style="margin-top:5%">
+
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="card" style="width:80vw">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Commande Stats</h4>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                <th>Id</th>
+                                <th>commande</th>
+                                <th>Client info</th>
+                                <th>Client address</th>
+                                <th>Etat</th>
+                                <th>Date</th>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let c of Commandes |paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+                                        <td>{{c.id}}</td>
+                                        <td>
+                                            <div *ngFor="let a of c.commande.split(',')"> {{a}}</div>
+                                        </td>
+                                        <td>{{c.user}}</td>
+                                        <td>{{c.address}}</td>
+
+                                        <td>
+                                            <div class="nav-item dropdown">
+                                                <input *ngIf="c.etat==0" type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBasic{{c.id}}" data-toggle="dropdown" aria-haspopup="true" value="non traite" />
+                                                <input *ngIf="c.etat==1" type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBasic{{c.id}}" data-toggle="dropdown" aria-haspopup="true" value="en cours de preparation" />
+                                                <input *ngIf="c.etat==2" type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBasic{{c.id}}" data-toggle="dropdown" aria-haspopup="true" value="en livrison" />
+                                                <input *ngIf="c.etat==3" type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBasic{{c.id}}" data-toggle="dropdown" aria-haspopup="true" value="livre" />
+
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownBasic{{c.id}}">
+                                                    <a class="dropdown-item" id="localisation" (click)="t(c.id,0)">non traite </a>
+                                                    <a class="dropdown-item" id="localisation" (click)="t(c.id,1)">en cours de preparation </a>
+                                                    <a class="dropdown-item" id="localisation" (click)="t(c.id,2)">en livrison </a>
+                                                    <a class="dropdown-item" id="localisation" (click)="t(c.id,3)">livre </a>
+
+                                                </div>
+                                            </div>
+                                        </td>
+
+
+                                        <td>{{c.date}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

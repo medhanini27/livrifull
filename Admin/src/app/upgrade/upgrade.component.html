@@ -1,0 +1,62 @@
+<div class="main-content" style="margin-top:1px">
+    <div class="container-fluid" >
+        <div id="promotiondiv" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="height:75%">
+                        <img style="width:540px;height:300px" id="imgBanner1" src="../../assets/img/collection-1.jpg" class="img-fluid full-width" alt="image">
+                            
+                                <div class="nav-item dropdown">
+                                    <input type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBanner1" data-toggle="dropdown" aria-haspopup="true" value="clicker ici pour choisir un resterant" />
+                                    <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownBasic1">
+                                        <a id="Banner1"  class="dropdown-item" *ngFor="let rest of Restaurant" (click)="onrestclick(rest.nom,rest.img,rest.id,'Banner1',1)" >{{rest.nom}}</a>
+
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="height:75%">
+                        <img style="width:540px;height:300px" id="imgBanner2" src="../../assets/img/collection-1.jpg" class="img-fluid full-width" alt="image">
+                        <div class="nav-item dropdown">
+                            <input type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBanner2" data-toggle="dropdown" aria-haspopup="true" value="clicker ici pour choisir un resterant" />
+                            <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownBasic2">
+                                <a id="Banner2" class="dropdown-item" *ngFor="let rest of Restaurant" (click)="onrestclick(rest.nom,rest.img,rest.id,'Banner2',2)">{{rest.nom}}</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="height:75%">
+                        <img style="width:540px;height:300px" id="imgBanner3" src="../../assets/img/collection-1.jpg" class="img-fluid full-width" alt="image">
+                        <div class="nav-item dropdown">
+                            <input type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBanner3" data-toggle="dropdown" aria-haspopup="true" value="clicker ici pour choisir un resterant" />
+                            <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownBasic3">
+                                <a id="Banner3" class="dropdown-item" *ngFor="let rest of Restaurant" (click)="onrestclick(rest.nom,rest.img,rest.id,'Banner3',3)">{{rest.nom}}</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="height:75%">
+                        <img style="width:540px;height:300px" id="imgBanner4" src="../../assets/img/collection-1.jpg" class="img-fluid full-width" alt="image">
+                        <div class="nav-item dropdown">
+                            <input type="button" class="btn" style="border:hidden; background-color:white;color:black" id="dropdownBanner4" data-toggle="dropdown" aria-haspopup="true" value="clicker ici pour choisir un resterant" />
+                            <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="dropdownBasic4">
+                                <a id="Banner4" class="dropdown-item" *ngFor="let rest of Restaurant" (click)="onrestclick(rest.nom,rest.img,rest.id,'Banner4',4)">{{rest.nom}}</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-outline-success" style="color:black;margin:auto" (click)="SaveBannerPromotion()">Save</button>
+
+        </div>
+    </div>
+</div>
